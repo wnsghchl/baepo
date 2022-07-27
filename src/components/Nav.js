@@ -10,16 +10,16 @@ function Nav() {
 
   // 로그아웃 함수
   function logout() {
-    axios 
+    axios
       .request({
         method: "POST",
-        url: "https://localhost:4000/api/user/logout",
+        url: "https://block-in-art.herokuapp.com/api/user/logout",
         withCredentials: true,
       })
       .then((res) => {
         sessionStorage.clear(); // 세션 지우기
         //window.location.replace("/"); //메인화면으로 새로고침
-        navigate("/")
+        navigate("/");
         alert("로그아웃 되었습니다."); //로그아웃 알림창 띄우기
       })
       .catch((err) => {

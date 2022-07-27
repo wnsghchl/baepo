@@ -19,8 +19,8 @@ function OfflineContractUser() {
     axios
       .request({
         method: "POST",
-        url: "https://localhost:4000/api/user/general/detail",
-        data: { id: id},
+        url: "https://block-in-art.herokuapp.com/api/user/general/detail",
+        data: { id: id },
         withCredentials: true,
       })
       .then((res) => {
@@ -31,8 +31,6 @@ function OfflineContractUser() {
       });
   };
 
-
-
   // API불러와서 trade_state값이 2면 대기화면, 3이면 계약체크리스트 화면 출력
   return (
     <>
@@ -40,7 +38,7 @@ function OfflineContractUser() {
         <OfflineContractCheckUser
           user_artistname={user_artistname} //작가는 작가명으로 props 내려주고
           trade_user_id={trade_user_id}
-          id = {id}// 구매자는 user_id로 props 내려줌.
+          id={id} // 구매자는 user_id로 props 내려줌.
         />
       ) : trade_state === "3" ? (
         <OfflineContractWaitingUser />
